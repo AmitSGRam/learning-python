@@ -10,5 +10,5 @@ def show_completed_models(completed_designs):
 unprinted_designs=['phone case','robot pendant','dodecahedron']
 completed_designs=[]
 
-print_models(unprinted_designs,completed_designs)
+print_models(unprinted_designs,completed_designs) #we can call print_models(unprinted_designs[:],completed_designs) to make sure completed_designs uses the copy of the unprinted_designes and keeps the original intact
 show_completed_models(completed_designs)
