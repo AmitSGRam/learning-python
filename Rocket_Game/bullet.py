@@ -8,8 +8,8 @@ class Bullet(Sprite):
         self.settings = rg_game.settings
         self.color = rg_game.settings.bullet_color
 
-        self.rect = pygame.rect(0,0,self.settings.bullet_width,
-            self.settings.bullet_height)
+        self.rect = pygame.Rect(0,0,self.settings.bullet_width, 
+                                self.settings.bullet_height)
         self.rect.midright = rg_game.rocket.image_rect.midright
         self.x = float(self.rect.x)
 

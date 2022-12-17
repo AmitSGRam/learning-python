@@ -17,7 +17,7 @@ class Rocket:
         # Load the rocket image and get its rect.
         self.image = pygame.image.load('Rocket_Game/rocket.bmp')
         self.image_rect = self.image.get_rect()
-
+        self.rect = self.image_rect
         # Set initial position of the rocket.
         self.image_rect.midleft = self.screen_rect.midleft
 
@@ -30,6 +30,12 @@ class Rocket:
         self.moving_left = False
         self.moving_up = False
         self.moving_down = False
+        
+    def center_rocket(self):
+        """Center the ship on the screen."""
+        self.image_rect.midleft = self.screen_rect.midleft
+        self.x = float(self.rect.x)
+        self.y = float(self.image_rect.y)
 
     def updaterocket(self):
         """Update rocket's position based on the Movement flag."""
