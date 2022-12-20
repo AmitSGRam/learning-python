@@ -1,5 +1,6 @@
 import sys
 from time import sleep
+import threading
 
 import pygame
 
@@ -40,8 +41,8 @@ class AlienInvasion:
         self.bullets = pygame.sprite.Group()
         self.aliens = pygame.sprite.Group()
 
-        self._create_fleet()
-        
+        #self._create_fleet()
+        (threading.Thread(target=self._create_fleet)).start()
         # Make the Play button.
         self.play_button = Button(self, "Play")
 
@@ -120,7 +121,8 @@ class AlienInvasion:
             self.bullets.empty()
             
             # Create a new fleet and center the ship.
-            self._create_fleet()
+            #self._create_fleet()
+            (threading.Thread(target=self._create_fleet)).start()
             self.ship.center_ship()
             
             # Hide the mouse cursor.
@@ -161,7 +163,8 @@ class AlienInvasion:
         if not self.aliens:
             # Destroy existing bullets and create new fleet.
             self.bullets.empty()
-            self._create_fleet()
+            #self._create_fleet()
+            (threading.Thread(target=self._create_fleet)).start()
             self.settings.increase_speed()
             
             # Increase level.
@@ -175,7 +178,8 @@ class AlienInvasion:
         # Draw the game character to game.
         #self.alisaie.blitme()
         # Draw the ship to game.
-        self.ship.blitme()
+        #self.ship.blitme()
+        (threading.Thread(target=self.ship.blitme())).start()
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
         # Draw the alien.
@@ -254,7 +258,8 @@ class AlienInvasion:
             self.bullets.empty()
             
             # Create a new fleet and center the ship.
-            self._create_fleet()
+            #self._create_fleet()
+            (threading.Thread(target=self._create_fleet)).start()
             self.ship.center_ship()
             
             # Pause.
